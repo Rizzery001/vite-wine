@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bone: #F2EBDF;
+  --paper: #EDE4D3;
+  --ink: #1A1411;
+  --ember: #7A2330;
+  --wine: #5B1A24;
+  --moss: #5C6B4A;
+  --clay: #B8896E;
+  --smoke: #6B5F52;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bone);
+  color: var(--ink);
+  font-family: var(--font-hanken), system-ui, sans-serif;
+  font-feature-settings: "ss01", "ss02";
+}
+
+/* Paper grain texture overlay */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background-color: var(--ember);
+  color: var(--bone);
+}
+
+.stain {
+  background: radial-gradient(ellipse at center, rgba(122, 35, 48, 0.12) 0%, transparent 60%);
+}
+
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.map-container {
+  filter: contrast(0.95) saturate(0.85);
+}
+
+/* Hero image overlay — keeps text readable on top of photo */
+.hero-overlay {
+  background: linear-gradient(
+    105deg,
+    rgba(26, 20, 17, 0.78) 0%,
+    rgba(26, 20, 17, 0.55) 35%,
+    rgba(26, 20, 17, 0.35) 65%,
+    rgba(26, 20, 17, 0.15) 100%
+  );
+}
+
+/* Producer card image hover */
+.producer-image {
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s ease;
+}
+
+.producer-card:hover .producer-image {
+  transform: scale(1.04);
+  filter: saturate(1.1) brightness(1.02);
+}
+
+/* Manifesto image subtle treatment */
+.manifesto-image {
+  filter: contrast(0.96) saturate(0.92);
+}
