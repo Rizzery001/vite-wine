@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/workspaces/vite-wine/app/layout":["static/media/313510e2713fb214-s.p.woff2","static/media/bb3ef058b751a6ad-s.p.woff2","static/media/26dc4a78f0c7af7f-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
